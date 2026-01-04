@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var todo_crud_1 = require("./todo-crud");
+var types_1 = require("../task1/types");
+var todo_factory_1 = require("../task3/todo-factory");
+var state = [];
+var todo = (0, todo_factory_1.createToDo)({ title: "Write tests" });
+state = (0, todo_crud_1.addTodo)(state, todo);
+state = (0, todo_crud_1.updateTodo)(state, todo.id, { status: types_1.ToDoStatus.COMPLETED });
+var found = (0, todo_crud_1.getTodo)(state, todo.id);
+console.log(found);
+state = (0, todo_crud_1.removeTodo)(state, todo.id);
+console.log(state);

@@ -1,5 +1,5 @@
-import { TodoApi } from '../JS-TS/solutions/todo-api';
-import { TodoService } from '../JS-TS/solutions/todo-service';
+import { TodoApi } from '../JS-TS/solutions/task7/refactored-todo-api';
+import { TodoService } from '../JS-TS/solutions/task8/todo-service';
 
 describe('Task 08: TodoService', () => {
   jest.setTimeout(10000);

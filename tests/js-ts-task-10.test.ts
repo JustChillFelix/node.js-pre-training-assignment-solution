@@ -1,4 +1,4 @@
-import { ToDoManager } from '../JS-TS/solutions/todo-manager';
+import { ToDoManager } from '../JS-TS/solutions/task10/todo-manager';
 
 describe('Task 10: ToDoManager Facade', () => {
   jest.setTimeout(10000);

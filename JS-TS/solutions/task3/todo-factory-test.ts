@@ -1,4 +1,4 @@
-import { createToDo } from "./todo-factory.ts";
+import { createToDo } from "./todo-factory";
 
 const a = createToDo({ title: "Learn TypeScript", description: "" });
 const b = createToDo({ title: "Refactor code" });

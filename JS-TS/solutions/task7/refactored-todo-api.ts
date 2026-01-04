@@ -1,5 +1,5 @@
-import { ToDo, ToDoStatus, NewTodo } from "../task3/todo-types";
-import { updateTodo, removeTodo, getTodo } from "../task4/todo-crud";
+import { InMemoryRepository } from "./repository";
+import { ToDo, ToDoStatus, NewTodo } from "../task1/types";
 
 let nextId = 1;
 
@@ -16,11 +16,11 @@ function simulateLatency(): Promise<void> {
 }
 
 export class TodoApi {
-  private todos: ToDo[] = [];
+  private repo = new InMemoryRepository<ToDo>();
 
   async getAll(): Promise<ToDo[]> {
     await simulateLatency();
-    return [...this.todos];
+    return this.repo.findAll();
   }
 
   async add(newTodo: NewTodo): Promise<ToDo> {
@@ -32,29 +32,27 @@ export class TodoApi {
       status: ToDoStatus.PENDING,
       createdAt: new Date(),
     };
-    this.todos.push(todo);
-    return todo;
+    return this.repo.add(todo);
   }
 
   async update(
     id: number,
-    update: Partial<Omit<ToDo, "id" | "createdAt">>
+    patch: Partial<Omit<ToDo, "id" | "createdAt">>
   ): Promise<ToDo> {
     await simulateLatency();
-    const index = this.todos.findIndex(t => t.id === id);
-    if (index === -1) {
+    const existing = this.repo.findById(id);
+    if (!existing) {
       throw new ToDoNotFoundError(id);
     }
-    this.todos = updateTodo(this.todos, id, update);
-    return getTodo(this.todos, id)!;
+    return this.repo.update(id, patch);
   }
 
   async remove(id: number): Promise<void> {
     await simulateLatency();
-    const existing = getTodo(this.todos, id);
+    const existing = this.repo.findById(id);
     if (!existing) {
       throw new ToDoNotFoundError(id);
     }
-    this.todos = removeTodo(this.todos, id);
+    this.repo.remove(id);
   }
 }

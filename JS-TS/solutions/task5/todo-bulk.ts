@@ -1,5 +1,5 @@
 import { ToDo, ToDoStatus, NewTodo } from '../task1/types';
-import { mapArray, filterArray, reduceArray, partition, groupBy } from '../task2/array-helpers.ts';
+import { mapArray, filterArray, reduceArray, partition, groupBy } from '../task2/array-helpers';
 
 export function toggleAll(state: ToDo[], completed: boolean): ToDo[] {
   return mapArray(state, (todo) => ({

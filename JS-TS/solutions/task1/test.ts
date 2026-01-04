@@ -13,3 +13,6 @@ const todo: ToDo = {
     status: ToDoStatus.IN_PROGRESS,
     createdAt: new Date()
 };
+
+console.log(newTodo);
+console.log(todo);

@@ -4,7 +4,7 @@ import {
   reduceArray,
   partition,
   groupBy,
-} from '../JS-TS/solutions/array-helpers';
+} from '../JS-TS/solutions/task2/array-helpers';
 
 const nums = [1, 2, 3, 4];
 

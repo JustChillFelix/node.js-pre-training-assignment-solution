@@ -1,4 +1,4 @@
-import { ToDoStatus, NewTodo, ToDo } from "./todo-types.ts";
+import { ToDoStatus, NewTodo, ToDo } from "./todo-types";
 
 let nextId = 1;
 

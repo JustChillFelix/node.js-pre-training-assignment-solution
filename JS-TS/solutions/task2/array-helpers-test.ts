@@ -1,4 +1,4 @@
-import { mapArray, filterArray, reduceArray, partition, groupBy } from './array-helpers.ts';
+import { mapArray, filterArray, reduceArray, partition, groupBy } from './array-helpers';
 
 console.log(mapArray([1,2,3], (n,i) => n + i));
 

@@ -1,10 +1,10 @@
-import { addTodo, updateTodo, removeTodo, getTodo } from '../JS-TS/solutions/todo-crud';
-import { createTodo } from '../JS-TS/solutions/todo-factory';
-import { TodoStatus } from '../JS-TS/solutions/types';
+import { addTodo, updateTodo, removeTodo, getTodo } from '../JS-TS/solutions/task4/todo-crud';
+import { createToDo } from '../JS-TS/solutions/task3/todo-factory';
+import { ToDoStatus } from '../JS-TS/solutions/task3/todo-types';
 
 describe('Task 04: CRUD operations', () => {
   const base = [];
-  const todo = createTodo({ title: 'X' });
+  const todo = createToDo({ title: 'X' });
 
   it('addTodo should add item immutably', () => {
     const next = addTodo(base, todo);
@@ -14,9 +14,9 @@ describe('Task 04: CRUD operations', () => {
 
   it('updateTodo should update fields immutably', () => {
     const list = addTodo(base, todo);
-    const updated = updateTodo(list, todo.id, { status: TodoStatus.COMPLETED });
-    expect(updated.find((t) => t.id === todo.id)!.status).toBe(TodoStatus.COMPLETED);
-    expect(list.find((t) => t.id === todo.id)!.status).toBe(TodoStatus.PENDING);
+    const updated = updateTodo(list, todo.id, { status: ToDoStatus.COMPLETED });
+    expect(updated.find((t) => t.id === todo.id)!.status).toBe(ToDoStatus.COMPLETED);
+    expect(list.find((t) => t.id === todo.id)!.status).toBe(ToDoStatus.PENDING);
   });
 
   it('removeTodo should remove item immutably', () => {

@@ -1,4 +1,4 @@
-import { InMemoryRepository } from '../JS-TS/solutions/repository';
+import { InMemoryRepository } from '../JS-TS/solutions/task7/repository';
 
 describe('Task 07: Generic Repository', () => {
   interface Entity { id: number; value: string; }

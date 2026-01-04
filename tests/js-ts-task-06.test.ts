@@ -1,5 +1,5 @@
-import { TodoApi } from '../JS-TS/solutions/todo-api';
-import { TodoStatus } from '../JS-TS/solutions/types';
+import { TodoApi } from '../JS-TS/solutions/task6/todo-api';
+import { ToDoStatus } from '../JS-TS/solutions/task3/todo-types';
 
 describe('Task 06: Simulated API', () => {
   jest.setTimeout(10000);
@@ -14,8 +14,8 @@ describe('Task 06: Simulated API', () => {
 
   it('update should change status', async () => {
     const [item] = await api.getAll();
-    const updated = await api.update(item.id, { status: TodoStatus.COMPLETED });
-    expect(updated.status).toBe(TodoStatus.COMPLETED);
+    const updated = await api.update(item.id, { status: ToDoStatus.COMPLETED });
+    expect(updated.status).toBe(ToDoStatus.COMPLETED);
   });
 
   it('remove should delete item', async () => {

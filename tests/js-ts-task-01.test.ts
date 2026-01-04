@@ -1,18 +1,18 @@
-import { TodoStatus, Todo } from '../JS-TS/solutions/types';
+import { ToDoStatus, ToDo } from '../JS-TS/solutions/task1/types';
 
 describe('Task 01: Core Types', () => {
   it('TodoStatus enum should contain expected members', () => {
-    expect(TodoStatus).toHaveProperty('PENDING');
-    expect(TodoStatus).toHaveProperty('IN_PROGRESS');
-    expect(TodoStatus).toHaveProperty('COMPLETED');
+    expect(ToDoStatus).toHaveProperty('PENDING');
+    expect(ToDoStatus).toHaveProperty('IN_PROGRESS');
+    expect(ToDoStatus).toHaveProperty('COMPLETED');
   });
 
-  it('New Todo instance should satisfy Todo interface structure', () => {
-    const sample: Todo = {
+  it('New ToDo instance should satisfy Todo interface structure', () => {
+    const sample: ToDo = {
       id: 1,
       title: 'Sample',
       description: 'desc',
-      status: TodoStatus.PENDING,
+      status: ToDoStatus.PENDING,
       createdAt: new Date(),
     };
     expect(sample.id).toBe(1);
